@@ -1,0 +1,80 @@
+[2026-09-18 14:51:36] INFO ========================================
+[2026-09-18 14:51:36] INFO Secure Network Check startar
+[2026-09-18 14:51:36] INFO Logg: /home/mouhamadaloumar/linux-uppgift/logs/secure_network_check_20260918_145136.log
+[2026-09-18 14:51:36] INFO ========================================
+[2026-09-18 14:51:36] INFO Startar kontroll: Miljööversikt
+[2026-09-18 14:51:36] INFO === Miljööversikt ===
+[2026-09-18 14:51:36] OK Kommandot 'ip' finns.
+[2026-09-18 14:51:36] INFO Interface och adresser:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet 10.255.255.254/32 brd 10.255.255.254 scope global lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host proto kernel_lo 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:0c:ce:aa brd ff:ff:ff:ff:ff:ff
+    altname enx00155d0cceaa
+    inet 172.21.109.103/20 brd 172.21.111.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::215:5dff:fe0c:ceaa/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+[2026-09-18 14:51:36] INFO Default route:
+default via 172.21.96.1 dev eth0 proto kernel 
+[2026-09-18 14:51:36] OK Default route hittades.
+[2026-09-18 14:51:36] OK Miljööversikt lyckades.
+[2026-09-18 14:51:36] INFO Startar kontroll: DNS
+[2026-09-18 14:51:36] INFO === DNS-kontroll ===
+2606:4700:10::ac42:93f3 example.com
+2606:4700:10::6814:179a example.com
+[2026-09-18 14:51:36] OK DNS-uppslag för 'example.com' lyckades.
+[2026-09-18 14:51:36] OK DNS lyckades.
+[2026-09-18 14:51:36] INFO Startar kontroll: Lokal tjänst
+[2026-09-18 14:51:36] INFO === Lokal testtjänst ===
+[2026-09-18 14:51:37] OK Lokal testtjänst startad på 127.0.0.1:8080.
+[2026-09-18 14:51:37] OK Lokal tjänst lyckades.
+[2026-09-18 14:51:37] INFO Startar kontroll: Localhost-test
+[2026-09-18 14:51:37] INFO Kontrollerar localhost på port 8080.
+Secure Network Check local test service
+[2026-09-18 14:51:37] OK Lokal testtjänst svarar på port 8080.
+[2026-09-18 14:51:37] OK Localhost-test lyckades.
+[2026-09-18 14:51:37] INFO Startar kontroll: Portöversikt
+[2026-09-18 14:51:37] INFO === Portöversikt ===
+[2026-09-18 14:51:37] OK Kommandot 'ss' finns.
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:Port
+udp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*   
+udp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*   
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*   
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*   
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*   
+udp   UNCONN 0      0               [::1]:323          [::]:*   
+udp   UNCONN 0      0               [::1]:323          [::]:*   
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*   
+tcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*   
+tcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*   
+tcp   LISTEN 0      5           127.0.0.1:8080      0.0.0.0:*   
+[2026-09-18 14:51:37] OK Testport 8080 lyssnar lokalt.
+[2026-09-18 14:51:37] OK Portöversikt lyckades.
+[2026-09-18 14:51:37] INFO Startar kontroll: Processkontroll
+[2026-09-18 14:51:37] INFO === Processkontroll ===
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 14:23 ?        00:00:00 /sbin/init
+root           2       1  0 14:23 hvc0     00:00:00 /init
+root           6       2  0 14:23 hvc0     00:00:00 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root          46       1  0 14:23 ?        00:00:00 /usr/lib/systemd/systemd-journald
+systemd+      78       1  0 14:23 ?        00:00:00 /usr/lib/systemd/systemd-resolved
+root          84       1  0 14:23 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root         154       1  0 14:23 ?        00:00:00 /bin/sh /usr/lib/systemd/scripts/chronyd-starter.sh -n -F 1
+[2026-09-18 14:51:37] OK Processinformation kunde läsas.
+[2026-09-18 14:51:37] OK Processkontroll lyckades.
+[2026-09-18 14:51:37] INFO ========================================
+[2026-09-18 14:51:37] INFO SLUTSOMMANFATTNING
+[2026-09-18 14:51:37] INFO Lyckade kontroller: 6
+[2026-09-18 14:51:37] INFO Misslyckade kontroller: 0
+[2026-09-18 14:51:37] INFO Loggfil: /home/mouhamadaloumar/linux-uppgift/logs/secure_network_check_20260918_145136.log
+[2026-09-18 14:51:37] INFO ========================================
+[2026-09-18 14:51:37] OK Alla kontroller lyckades.
+[2026-09-18 14:51:37] INFO Lokal testtjänst stoppad.
+[2026-09-18 14:51:37] INFO Temporär testkatalog borttagen.
